@@ -66,4 +66,28 @@ public abstract class Coin {
         }
         return str;
     }
+
+    public String toString() {
+        String str = "coin Information: " + getCountryCode() + ", " + getDemonination() + ", " 
+            + getCommonName() + ", " + getSpecs() + ".";
+        String addOns = "";
+        String smelt = smelt();
+        String inspect = inspect();
+        String smooth = smooth();
+        String buff = buff();
+        if (smelt.equals("Failed in smelting")) {
+            addOns = addOns + " \n" + smelt;
+        }
+        else if(inspect.equals("Failed in inpecting")) {
+            addOns = addOns + " \n" + smelt + " \n" + inspect;
+        }
+        else if(smooth.equals("Failed in smoothing")) {
+            addOns = addOns + " \n" + smelt + " \n" + inspect + " \n" + smooth;
+        }
+        else {
+            addOns = addOns + " \n" + smelt + " \n" + inspect + " \n" + smooth + " \n" + buff;
+        }
+        
+        return str + addOns;
+    }
 }

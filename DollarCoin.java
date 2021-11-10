@@ -3,7 +3,7 @@ public class DollarCoin extends Coin {
         super("USD", 1.00, "Dollar", "88.5% Cu 6% Zi 3.5% Mn 2% Ni");
     }
 
-    public String toString() {
+    /*public String toString() {
         String str = "coin Information: " + super.getCountryCode() + ", " + super.getDemonination() + ", " 
             + super.getCommonName() + ", " + super.getSpecs() + ".";
         String addOns = "";
@@ -25,5 +25,5 @@ public class DollarCoin extends Coin {
         }
         
         return str + addOns;
-    }
+    }*/
 }
