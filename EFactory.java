@@ -7,13 +7,13 @@ public class EFactory {
                 return new oneEuro();
             case "fifty cent euro":
                 return new fiftyEuroCent();
-            case "twenty euro cent":
+            case "twenty cent euro":
                 return new twentyEuroCent();
-            case "ten euro cent":
+            case "ten cent euro":
                 return new tenEuroCent();
-            case "five euro cent":
+            case "five cent euro":
                 return new fiveEuroCent();
-            case "two euro cent":
+            case "two cent euro":
                 return new twoEuroCent();
             case "euro cent":
                 return new euroCent();
