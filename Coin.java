@@ -14,35 +14,56 @@ public abstract class Coin {
         this.smelting_specs = smelting_specs;
     }
 
-    void smelt() {
-        if (rng.nextFloat() >= (1/12)) { /*success*/
-            System.out.println("Successfully smelted the " + common_name + "coin");
-        } else { /*failure*/
-            System.out.println("Failed in smelting");
-        }
+    public double getDemonination() {
+        return demonination;
+    }
+    public String getCountryCode() {
+        return country_code;
+    }
+    public String getCommonName() {
+        return common_name;
+    }
+    public String getSpecs() {
+        return smelting_specs;
     }
 
-    void inspect() {
-        if (rng.nextFloat() >= (1/12)) { /*success*/
-            System.out.println("Successfully inspected the " + common_name + "coin");
+    public String smelt() {
+        String str;
+        if (rng.nextFloat() >= (1/1000)) { /*success*/
+            str = ("Successfully smelted the " + common_name + "coin");
         } else { /*failure*/
-            System.out.println("Failed in inpecting");
+            str = ("Failed in smelting");
         }
+        return str;
     }
 
-    void smooth() {
+    public String inspect() {
+        String str;
         if (rng.nextFloat() >= (1/12)) { /*success*/
-            System.out.println("Successfully smoothed the " + common_name + "coin");
+            str = ("Successfully inspected the " + common_name + "coin");
         } else { /*failure*/
-            System.out.println("Failed in smoothing");
+            str = ("Failed in inpecting");
         }
+        return str;
     }
 
-    void buff() {
-        if (rng.nextFloat() >= (1/12)) { /*success*/
-            System.out.println("Successfully buffed the " + common_name + "coin");
+    public String smooth() {
+        String str;
+        if (rng.nextFloat() >= (1/1000)) { /*success*/
+            str = ("Successfully smoothed the " + common_name + "coin");
         } else { /*failure*/
-            System.out.println("Failed in buffing");
+            str = ("Failed in smoothing");
         }
+        return str;
+    }
+
+    public String buff() {
+        String str;
+        if (rng.nextFloat() >= (1/1000)) { /*success*/
+            str = ("Successfully buffed the " + common_name + "coin");
+        } else { /*failure*/
+            str = ("Failed in buffing");
+        }
+        return str;
     }
 }
