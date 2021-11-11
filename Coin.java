@@ -2,17 +2,19 @@ import java.util.Random;
 
 public abstract class Coin {
     private String country_code;
-    private double demonination;
+    private double denomination;
     private String common_name;
     private String smelting_specs;
     private Random rng = new Random(696969);
+    private double chance_of_failure = 1/12;
 
-    public Coin(String country_code, double demonination, String common_name, String smelting_specs) {
+    public Coin(String country_code, double denomination, String common_name, String smelting_specs) {
         this.country_code = country_code;
-        this.demonination = demonination;
+        this.denomination = denomination;
         this. common_name = common_name;
         this.smelting_specs = smelting_specs;
     }
+
 
     public double getDemonination() {
         return demonination;
@@ -33,9 +35,11 @@ public abstract class Coin {
             str = ("Successfully smelted the " + common_name + "coin");
         } else { /*failure*/
             str = ("Failed in smelting");
+
         }
         return str;
     }
+
 
     public String inspect() {
         String str;
@@ -43,9 +47,11 @@ public abstract class Coin {
             str = ("Successfully inspected the " + common_name + "coin");
         } else { /*failure*/
             str = ("Failed in inpecting");
+
         }
         return str;
     }
+
 
     public String smooth() {
         String str;
@@ -53,9 +59,11 @@ public abstract class Coin {
             str = ("Successfully smoothed the " + common_name + "coin");
         } else { /*failure*/
             str = ("Failed in smoothing");
+
         }
         return str;
     }
+
 
     public String buff() {
         String str;
@@ -86,6 +94,7 @@ public abstract class Coin {
         }
         else {
             addOns = addOns + " \n" + smelt + " \n" + inspect + " \n" + smooth + " \n" + buff;
+
         }
         
         return str + addOns;
