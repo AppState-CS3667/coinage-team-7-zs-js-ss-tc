@@ -15,59 +15,88 @@ public abstract class Coin {
         this.smelting_specs = smelting_specs;
     }
 
-    String get_country_code() {
+
+    public double getDemonination() {
+        return demonination;
+    }
+    public String getCountryCode() {
         return country_code;
     }
-
-    double get_denomination(){
-        return denomination;
-    }
-
-    String get_common_name(){
+    public String getCommonName() {
         return common_name;
     }
-
-    String get_smelting_specs(){
+    public String getSpecs() {
         return smelting_specs;
     }
 
-    boolean smelt() {
-        if (rng.nextFloat() >= chance_of_failure) { /*success*/
-            System.out.println("Successfully smelted the " + common_name + "coin");
-            return true;
+    public String smelt() {
+        String str;
+        if (rng.nextFloat() >= (1/1000)) { /*success*/
+            str = ("Successfully smelted the " + common_name + "coin");
         } else { /*failure*/
-            System.out.println("Failed in smelting");
-            return false;
+            str = ("Failed in smelting");
+
         }
+        return str;
     }
 
-    boolean inspect() {
-        if (rng.nextFloat() >= chance_of_failure) { /*success*/
-            System.out.println("Successfully inspected the " + common_name + "coin");
-            return true;
+
+    public String inspect() {
+        String str;
+        if (rng.nextFloat() >= (1/12)) { /*success*/
+            str = ("Successfully inspected the " + common_name + "coin");
         } else { /*failure*/
-            System.out.println("Failed in inpecting");
-            return false;
+            str = ("Failed in inpecting");
+
         }
+        return str;
     }
 
-    boolean smooth() {
-        if (rng.nextFloat() >= chance_of_failure) { /*success*/
-            System.out.println("Successfully smoothed the " + common_name + "coin");
-            return true;
+
+    public String smooth() {
+        String str;
+        if (rng.nextFloat() >= (1/1000)) { /*success*/
+            str = ("Successfully smoothed the " + common_name + "coin");
         } else { /*failure*/
-            System.out.println("Failed in smoothing");
-            return false;
+            str = ("Failed in smoothing");
+
         }
+        return str;
     }
 
-    boolean buff() {
-        if (rng.nextFloat() >= chance_of_failure) { /*success*/
-            System.out.println("Successfully buffed the " + common_name + "coin");
-            return true;
+
+    public String buff() {
+        String str;
+        if (rng.nextFloat() >= (1/1000)) { /*success*/
+            str = ("Successfully buffed the " + common_name + "coin");
         } else { /*failure*/
-            System.out.println("Failed in buffing");
-            return false;
+            str = ("Failed in buffing");
         }
+        return str;
+    }
+
+    public String toString() {
+        String str = "coin Information: " + getCountryCode() + ", " + getDemonination() + ", " 
+            + getCommonName() + ", " + getSpecs() + ".";
+        String addOns = "";
+        String smelt = smelt();
+        String inspect = inspect();
+        String smooth = smooth();
+        String buff = buff();
+        if (smelt.equals("Failed in smelting")) {
+            addOns = addOns + " \n" + smelt;
+        }
+        else if(inspect.equals("Failed in inpecting")) {
+            addOns = addOns + " \n" + smelt + " \n" + inspect;
+        }
+        else if(smooth.equals("Failed in smoothing")) {
+            addOns = addOns + " \n" + smelt + " \n" + inspect + " \n" + smooth;
+        }
+        else {
+            addOns = addOns + " \n" + smelt + " \n" + inspect + " \n" + smooth + " \n" + buff;
+
+        }
+        
+        return str + addOns;
     }
 }

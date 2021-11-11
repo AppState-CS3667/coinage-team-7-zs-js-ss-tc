@@ -14,10 +14,11 @@ CKSTYLE_COMMAND =  -jar checkstyle-5.5-all.jar
 
 default: 
 	@echo "usage: make target"
-	@echo "4 available targets: clean - removes editor tmpfiles and .class files"
+	@echo "5 available targets: clean - removes editor tmpfiles and .class files"
 	@echo "____________________ compile - builds codebase"
 	@echo "____________________ test - runs JUnit5 tests"
 	@echo "____________________ check - runs my custom checkstyle"
+	@echo "____________________ demo - runs demo"
 	@echo "Just starting with make? Try these 4 make commands successively:"
 	@echo "________ make clean ; make compile ; make test ; make check"
 
@@ -48,3 +49,5 @@ check: mystyle.xml Cookie.java
 	java $(CKSTYLE_COMMAND) -c ./mystyle.xml Cookie.java
 	java $(CKSTYLE_COMMAND) -c mystyle.xml SugarCookie.java
 
+demo: demo.class
+	java demo
